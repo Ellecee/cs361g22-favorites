@@ -1,17 +1,15 @@
-## Microservice 2: Favorites Microservice
+# Microservice 2: Favorites Microservice
 
 **Purpose:**
 Allows users to add, delete, and view their favorites list.
 
 ## Communication Contract
 
-# How to programmatically REQUEST data
+### How to programmatically REQUEST data
 
-# How to programmatically RECEIVE data
+### How to programmatically RECEIVE data
 
 ## UML Diagram
-
-![Favorities UML Diagram](https://lucid.app/publicSegments/view/e23a2660-5f2f-4e26-9c19-0cb82d88999e/image.png)
 ```mermaid
 ---
 config:
@@ -40,3 +38,5 @@ sequenceDiagram
     Client ->> Favorites Microservice: User deletes a favorited item <br/>DELETE /favorites/remove  { userID, itemID }
     Favorites Microservice->>Database: Query the database
     Favorites Microservice-->>Client: Favorites list is shown
+
+<!-- ![Favorities UML Diagram](https://lucid.app/publicSegments/view/e23a2660-5f2f-4e26-9c19-0cb82d88999e/image.png) -->
