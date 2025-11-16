@@ -114,6 +114,8 @@ The test program (`test_client.js`) demonstrates how a client program can reques
 }
 ```
 
+---
+
 ## UML Sequence Diagram
 ```mermaid
 ---
