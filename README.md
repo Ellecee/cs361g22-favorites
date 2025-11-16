@@ -31,9 +31,17 @@ Favorites service running on http://localhost:3001
 
 Leave this running in the **Terminal**.
 
+### Running the Test Client
+
+In a separate terminal:
+
+```
+node test_client.js
+```
+
 ---
 
-### Communication Contract
+## Communication Contract
 
 The microservice runs on port **3001** and communicates using **HTTP requests** through endpoints.
 
@@ -57,6 +65,18 @@ The test program (`test_client.js`) demonstrates how a client program can reques
 {
   "userID": "u1",
   "itemID": "r123"
+}
+```
+
+Programatically **request** data and **receives** data through the following:
+```
+async function post(path, body) {
+  const r = await fetch(base + path, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body)
+  });
+  return r.json();
 }
 ```
 
@@ -91,6 +111,14 @@ The test program (`test_client.js`) demonstrates how a client program can reques
 /favorites?userID=u1
 ```
 
+Programatically **request** data and **receives** data through the following:
+```
+async function get(path) {
+  const r = await fetch(base + path);
+  return r.json();
+}
+```
+
 ### Example Output
 ```json
 { 
@@ -112,6 +140,18 @@ The test program (`test_client.js`) demonstrates how a client program can reques
 {
   "userID": "u1",
   "itemID": "r123"
+}
+```
+
+Programatically **request** data and **receives** data through the following:
+```
+async function del(path, body) {
+  const r = await fetch(base + path, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body)
+  });
+  return r.json();
 }
 ```
 
