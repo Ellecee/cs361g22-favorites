@@ -1,6 +1,6 @@
 # Favorites Microservice
 
-CS361 – Assignment 8 (Small Pool / Milestone #2)
+CS361 – Assignment 8 (Small Pool / Milestone #2)  
 Author: Group 22
 
 ---
