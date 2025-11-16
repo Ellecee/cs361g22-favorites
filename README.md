@@ -1,15 +1,66 @@
-# Microservice 2: Favorites Microservice
+# Favorites Microservice
 
-**Purpose:**
-Allows users to add, delete, and view their favorites list.
+CS361 – Assignment 8 (Small Pool / Milestone #2)
+Author: Group 22  
 
-## Communication Contract
+## Overview
 
-### How to programmatically REQUEST data
+The **Favorites Microservice** allows users to add, delete, and view their favorites list.
 
-### How to programmatically RECEIVE data
+### Communication Contract
 
-## UML Diagram
+The microservice runs on port **3001** and communicates using **HTTP requests** through endpoints.
+
+Endpoints:
+- `POST /favorites/add` - Adds a favorite
+- `GET /favorites` - Retrieves the favorites list
+- `DELETE /favorites/remove` - Removes a favorite
+
+The test program (`test_client.js`) demonstrates how a client program can request data from the microservice and receive a response.
+
+## 1. Adding a Favorite
+
+### Endpoint
+`POST http://localhost:3001/favorites/add`
+
+### Headers
+`Content-Type: application/json`
+
+### Request Body Example
+``
+
+### Example Output
+``
+
+## 2. Favorites List
+
+### Endpoint
+`GET  http://localhost:3001/favorites?userID=u1`
+
+### Headers
+`Content-Type: application/json`
+
+### Request Body Example
+``
+
+### Example Output
+``
+
+## 3. Delete a Favorite
+
+### Endpoint
+`DELETE http://localhost:3001/favorites/remove`
+
+### Headers
+`Content-Type: application/json`
+
+### Request Body Example
+``
+
+### Example Output
+``
+
+## UML Sequence Diagram
 ```mermaid
 ---
 config:
