@@ -53,7 +53,7 @@ The test program (`test_client.js`) demonstrates how a client program can reques
 `Content-Type: application/json`
 
 ### Request Body Example
-```json
+```
 {
   "userID": "u1",
   "itemID": "r123"
@@ -61,7 +61,7 @@ The test program (`test_client.js`) demonstrates how a client program can reques
 ```
 
 ### Example Output
-```json
+```
 {
   status: 'success',
   message: 'Added',
@@ -83,9 +83,10 @@ The test program (`test_client.js`) demonstrates how a client program can reques
 ```
 
 ### Example Output
-```json
+```
 { 
-  status: 'success', removed: true 
+  status: 'success', 
+  removed: true 
 }
 ```
 
@@ -98,7 +99,7 @@ The test program (`test_client.js`) demonstrates how a client program can reques
 `Content-Type: application/json`
 
 ### Request Body Example
-```json
+```
 {
   "userID": "u1",
   "itemID": "r123"
@@ -106,9 +107,10 @@ The test program (`test_client.js`) demonstrates how a client program can reques
 ```
 
 ### Example Output
-```json
+```
 { 
-  status: 'success', favorites: [] 
+  status: 'success', 
+  favorites: [] 
 }
 ```
 
