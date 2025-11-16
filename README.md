@@ -174,12 +174,13 @@ config:
 sequenceDiagram
   participant Client
   participant Favorites Microservice
-  participant Database@{ "type" : "database" }
+  participant Memory@{ "type" : "database" }
     
-    Note left of Client: When a user favorites an item, <br/>a request is sent to the microservice <br/>to add that item to the database
+    Note right of Memory: Data Storage
+    Note left of Client: When a user favorites an item, <br/>a request is sent to the microservice <br/>to add that item to the Memory
     Client ->> Favorites Microservice: User adds a favorite <br/>POST /favorites/add { userID, itemID }
     alt userID and itemID are valid
-            Favorites Microservice->>Database: Item is added to the database <br/>favorites.push({ userID, itemID });
+            Favorites Microservice->>Memory: Item is added to memory <br/>favorites.push({ userID, itemID });
             Favorites Microservice-->>Client: Message: "Added"
         else userID and itemID are invalid
             Favorites Microservice-->>Client: Message: "Missing userID or itemID"
@@ -187,10 +188,10 @@ sequenceDiagram
     
     Note left of Client: When a user views their favorites list, <br/>a request is sent to the microservice <br/>to return that list
     Client ->> Favorites Microservice: User gets favorites list <br/>GET /favorites
-    Favorites Microservice->>Database: Query the database
+    Favorites Microservice->>Memory: Get favorites
     Favorites Microservice-->>Client: Favorites list is shown
     
-    Note left of Client: When a user deletes a favorite, <br/>a request is sent to the microservice <br/>to remove it from the database.
+    Note left of Client: When a user deletes a favorite, <br/>a request is sent to the microservice <br/>to remove it from the Memory.
     Client ->> Favorites Microservice: User deletes a favorited item <br/>DELETE /favorites/remove  { userID, itemID }
-    Favorites Microservice->>Database: Query the database
-    Favorites Microservice-->>Client: Favorites list is shown
+    Favorites Microservice->>Memory: Remove item
+    Favorites Microservice-->>Client: status: success
