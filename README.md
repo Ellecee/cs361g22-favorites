@@ -1,11 +1,37 @@
 # Favorites Microservice
 
 CS361 – Assignment 8 (Small Pool / Milestone #2)
-Author: Group 22  
+Author: Group 22
+
+---
 
 ## Overview
 
 The **Favorites Microservice** allows users to add, delete, and view their favorites list.
+
+## How to run the microservice
+
+### Install dependencies
+
+```
+npm install
+```
+
+### Start the microservice
+
+```
+npm start
+```
+
+You should see:
+
+```
+Favorites service running on http://localhost:3001
+```
+
+Leave this running in the **Terminal**.
+
+---
 
 ### Communication Contract
 
@@ -13,7 +39,7 @@ The microservice runs on port **3001** and communicates using **HTTP requests** 
 
 Endpoints:
 - `POST /favorites/add` - Adds a favorite
-- `GET /favorites` - Retrieves the favorites list
+- `GET /favorites` - Retrieves all favorites
 - `DELETE /favorites/remove` - Removes a favorite
 
 The test program (`test_client.js`) demonstrates how a client program can request data from the microservice and receive a response.
@@ -27,24 +53,41 @@ The test program (`test_client.js`) demonstrates how a client program can reques
 `Content-Type: application/json`
 
 ### Request Body Example
-``
+```json
+{
+  "userID": "u1",
+  "itemID": "r123"
+}
+```
 
 ### Example Output
-``
+```json
+{
+  status: 'success',
+  message: 'Added',
+  favorites: [ { userID: 'u1', itemID: 'r123' } ]
+}
+```
 
 ## 2. Favorites List
 
 ### Endpoint
-`GET  http://localhost:3001/favorites?userID=u1`
+`GET  http://localhost:3001/favorites`
 
 ### Headers
 `Content-Type: application/json`
 
 ### Request Body Example
-``
+```
+/favorites?userID=u1
+```
 
 ### Example Output
-``
+```json
+{ 
+  status: 'success', removed: true 
+}
+```
 
 ## 3. Delete a Favorite
 
@@ -55,10 +98,19 @@ The test program (`test_client.js`) demonstrates how a client program can reques
 `Content-Type: application/json`
 
 ### Request Body Example
-``
+```json
+{
+  "userID": "u1",
+  "itemID": "r123"
+}
+```
 
 ### Example Output
-``
+```json
+{ 
+  status: 'success', favorites: [] 
+}
+```
 
 ## UML Sequence Diagram
 ```mermaid
