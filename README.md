@@ -53,19 +53,28 @@ The test program (`test_client.js`) demonstrates how a client program can reques
 `Content-Type: application/json`
 
 ### Request Body Example
-```
+```json
 {
   "userID": "u1",
   "itemID": "r123"
 }
 ```
 
-### Example Output
-```
+### Example Successful Output
+```json
 {
-  status: 'success',
-  message: 'Added',
-  favorites: [ { userID: 'u1', itemID: 'r123' } ]
+  "status": "success",
+  "message": "Added",
+  "favorites": "[ { userID: 'u1', itemID: 'r123' } ]"
+}
+```
+
+### Unsuccessful Output
+**Status 400**
+```json
+{
+  "status": "error",
+  "message": "Missing userID or itemID"
 }
 ```
 
@@ -77,16 +86,16 @@ The test program (`test_client.js`) demonstrates how a client program can reques
 ### Headers
 `Content-Type: application/json`
 
-### Request Body Example
+### Request Query
 ```
 /favorites?userID=u1
 ```
 
 ### Example Output
-```
+```json
 { 
-  status: 'success', 
-  removed: true 
+  "status": "success", 
+  "removed": "true" 
 }
 ```
 
@@ -99,7 +108,7 @@ The test program (`test_client.js`) demonstrates how a client program can reques
 `Content-Type: application/json`
 
 ### Request Body Example
-```
+```json
 {
   "userID": "u1",
   "itemID": "r123"
@@ -107,10 +116,10 @@ The test program (`test_client.js`) demonstrates how a client program can reques
 ```
 
 ### Example Output
-```
+```json
 { 
-  status: 'success', 
-  favorites: [] 
+  "status": "success", 
+  "favorites": "[]" 
 }
 ```
 
